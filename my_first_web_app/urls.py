@@ -16,12 +16,21 @@ Including another URLconf
 from django.http import HttpResponse
 from django.urls import path
 from django.shortcuts import render
+from random import randint
 
 def home_page(request):
-    response = render(request, 'index.html')
+    context = {'name': 'Betty Maker'}
+    response = render(request, 'index.html', context)
+
+def portfolio(request):
+    random_number = randint(0,100)
+    image_url = "https://picsum.photos/400/600/?image={}".format(random_number)
+    context = {'gallery_image': image_url}
+    response = render(request, 'gallery.html', context)
     return HttpResponse(response)
 
 
 urlpatterns = [
-    path('home/', home_page)
+    path('home/', home_page),
+    path('portfolio/', portfolio)
 ]
