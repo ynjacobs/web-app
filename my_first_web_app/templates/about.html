@@ -1,0 +1,18 @@
+<h1>Hi I'm Yael</h1>
+<p>this is the home page</p>
+<h2>interests</h2>
+    <ul>
+     {% for interest in interests %}
+            <li>
+               {{ interest }}
+            </li>
+     {% endfor %}
+    </ul>
+<h2>skills</h2>
+    <ul>
+        {% for skill in skills %}
+               <li>
+                  {{ skill }}
+               </li>
+        {% endfor %}
+       </ul>
